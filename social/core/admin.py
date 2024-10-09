@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import Comment, Group, Post, Subscribe, User
+from .models import Comment, Group, Post, Subscribe, User, UserProfile
 
 
 @admin.register(User)
@@ -40,3 +40,7 @@ class CommentAdmin(admin.ModelAdmin):
 class SubscribeAdmin(admin.ModelAdmin):
     list_display = ('user', 'group', '__str__',)
     list_filter = ('user', 'group')
+
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('user', 'bio', 'website', 'location')
